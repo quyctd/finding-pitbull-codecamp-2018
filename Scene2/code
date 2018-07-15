@@ -1,0 +1,40 @@
+import pygame
+from Scene2.game_objectS2 import collide_with
+from Scene2.game_objectS2 import GameObject
+from Scene2.frame_counterS2 import FrameCounter
+from Scene2.physics.box_collider import BoxCollider
+from Scene2.renderer.image_renderer import ImageRenderer
+from Scene2.map_titles.spike import Spike
+
+class Player(GameObject):
+    def __init__(self, x, y, input_manager):
+        GameObject.__init__(self, x, y)
+        self.image = pygame.image.load("image/player/player1.png")
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
+        self.input_manager = input_manager
+        self.counter = FrameCounter(30)
+        self.box_collider = BoxCollider(self.width, self.height)
+
+
+    def update(self):
+        GameObject.update(self)
+        self.move()
+
+
+    def move(self):
+        dx = 0
+        dy = 0
+        speed = 3
+
+        if self.input_manager.right_pressed:
+            dx += speed
+        if self.input_manager.left_pressed:
+            dx -= speed
+        if self.input_manager.down_pressed:
+            dy += speed
+        if self.input_manager.up_pressed:
+            dy -= speed
+        self.x += dx
+        self.y += dy
+
