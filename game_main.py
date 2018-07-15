@@ -36,3 +36,4 @@ for scene in list_scene:
     game.update(canvas)
     if game.pressClose:
         break
+# ending.update(canvas)

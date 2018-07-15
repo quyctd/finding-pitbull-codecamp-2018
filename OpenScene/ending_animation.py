@@ -1,11 +1,11 @@
 import pygame
-from Minh.player.animation import Animation
+from Minh.player.animation_end import AnimationEnd
 
 
 class EndingAnimation:
 
     def __init__(self):
-        self.ed_animation = Animation([
+        self.ed_animation = AnimationEnd([
                                        "OpenScene/images/elevator/thangmay9.png",
                                        "OpenScene/images/elevator/thangmay8.png",
                                         "EndScene/outtro.2.png",

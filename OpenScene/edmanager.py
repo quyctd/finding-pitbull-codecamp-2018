@@ -14,6 +14,7 @@ class Main():
         clock = pygame.time.Clock()
         pygame.mixer.music.load('OpenScene/fastbeat.wav')
         pygame.mixer.music.play(-1)
+        game_over = pygame.image.load("EndScene/GameOver.jpg")
 
         while loop:
             events = pygame.event.get()
@@ -23,6 +24,7 @@ class Main():
                     self.pressClose = True
 
             self.ending.render(canvas,0, 0)
+
 
             pygame.display.flip()
             clock.tick(60)
